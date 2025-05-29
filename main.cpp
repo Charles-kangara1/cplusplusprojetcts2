@@ -1,42 +1,28 @@
-
-/*author:Charles Mureithi
-  ADM NO:BSE-01-0050/2025
-  DESCRIPTION:a a grading system that gets the sum of marks ,average and grades the average*/
-
 #include <iostream>
-
+#include<math
 using namespace std;
 
 int main()
 {
-    float mark1,mark2,mark3,sum_of_marks,average_of_marks;
-    cout<<"enter three marks of your choice:"<<endl;
-    cin>>mark1>>mark2>>mark3;
-    sum_of_marks=mark1+mark2+mark3;
-    average_of_marks=sum_of_marks/3;
-    if(average_of_marks>=70&&average_of_marks<=100){
-            cout<<"the average for the marks is:"<<average_of_marks<<endl;
-        cout<<"grade:A";
-    }
-    else if(average_of_marks>=60&&average_of_marks<70){
-            cout<<"the average for the marks is:"<<average_of_marks<<endl;
-        cout<<"grade:B";
-    }
-     else if(average_of_marks>=50&&average_of_marks<60){
-            cout<<"the average for the marks is:"<<average_of_marks<<endl;
-        cout<<"grade:C";
-    }
-     else if(average_of_marks>=40&&average_of_marks<50){
-            cout<<"the average for the marks is:"<<average_of_marks<<endl;
-        cout<<"grade:D";
-    }
-     else if(average_of_marks>=0&&average_of_marks<40){
-            cout<<"the average for the marks is:"<<average_of_marks<<endl;
-        cout<<"grade:E(fail)";
-    }
-    else{
-        cout<<"average not gradable";
-    }
+    float weight,height,BMI;
+    cout<<"enter your weight and height"<<endl;
+    cin>>weight>>height;
+    BMI=weight/pow(height,2);
+    if(BMI<18.5){
+       cout<<"BMI:"<<BMI<<endl;
+        cout<<"underweight";
+       }
 
-    return 0;
+    else if(BMI>=18.5&&BMI<25){
+       cout<<"BMI:"<<BMI<<endl;
+       cout<<"normal weight";}
+
+    else if(BMI>=25&&BMI<30){
+       cout<<"BMI:"<<BMI<<endl;
+        cout<<"overweight";}
+
+    else{
+       cout<<"BMI:"<<BMI<<endl;
+        cout<<"obesity";}
+        return 0;
 }
