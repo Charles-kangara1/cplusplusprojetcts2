@@ -1,31 +1,42 @@
+
 /*author:Charles Mureithi
   ADM NO:BSE-01-0050/2025
-  DESCRIPTION: A code to get the bonus and the net salary after the bonus*/
+  DESCRIPTION:a a grading system that gets the sum of marks ,average and grades the average*/
+
 #include <iostream>
 
 using namespace std;
 
 int main()
-{ float salary,years_of_experience,bonus,new_salary;
-cout<<"enter the salary and the years of exprience of the employee:"<<endl;
-cin>>salary>>years_of_experience;
-if(years_of_experience<6){
-    bonus=0.06*salary;
-    new_salary=salary+bonus;
-}
-else if(years_of_experience>=6&&years_of_experience<=10){
-    bonus=0.08*salary;
-    new_salary=salary+bonus;
-}
-else if(years_of_experience>10){
-    bonus=0.1*salary;
-    new_salary=salary+bonus;
-}
-else{
-    cout<<"salary not applicable for bonus";
-}
-cout<<"the bonus of employee is:"<<bonus<<endl;
-cout<<"the new salary of the employee is:"<<new_salary;
-return 0;
+{
+    float mark1,mark2,mark3,sum_of_marks,average_of_marks;
+    cout<<"enter three marks of your choice:"<<endl;
+    cin>>mark1>>mark2>>mark3;
+    sum_of_marks=mark1+mark2+mark3;
+    average_of_marks=sum_of_marks/3;
+    if(average_of_marks>=70&&average_of_marks<=100){
+            cout<<"the average for the marks is:"<<average_of_marks<<endl;
+        cout<<"grade:A";
+    }
+    else if(average_of_marks>=60&&average_of_marks<70){
+            cout<<"the average for the marks is:"<<average_of_marks<<endl;
+        cout<<"grade:B";
+    }
+     else if(average_of_marks>=50&&average_of_marks<60){
+            cout<<"the average for the marks is:"<<average_of_marks<<endl;
+        cout<<"grade:C";
+    }
+     else if(average_of_marks>=40&&average_of_marks<50){
+            cout<<"the average for the marks is:"<<average_of_marks<<endl;
+        cout<<"grade:D";
+    }
+     else if(average_of_marks>=0&&average_of_marks<40){
+            cout<<"the average for the marks is:"<<average_of_marks<<endl;
+        cout<<"grade:E(fail)";
+    }
+    else{
+        cout<<"average not gradable";
+    }
 
+    return 0;
 }
