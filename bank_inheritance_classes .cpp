@@ -3,76 +3,93 @@ AdmNo:BSE-01-0050/2025
 Name:Charles Mureithi*/ 
 #include<iostream> 
 #include<string> 
+#include<cmath>
 using namespace std;
 //we start with the base class for the account holder name 
+//BASE CLASS
 class AccountHolder{
-	/* the access for this data member is protected meaning it can only be a
-	accessed by ingerited classes*/
-	protected:
+	//encapuslated data member 
+private:
 	string Name;
 	
-	/*a public member function so that it can be accesed even within the main 
-	function*/
+	
 	public:
-	/* a void function since we dont need any return value but setting the 'N'
-	 as the name data member in the class */
-	 
-	 void SetName(string N){
+	
+// constructor 	to enable access of the data member outside the class  
+	AccountHolder(string N){
 		Name=N;
 	}
+	//the getter function to get the variable when called 
 	string getName(){
 		return Name;
 	}
 	
 }; 
 
+ //DERIVED CLASS1
+ 
  class BankAccount: public AccountHolder {
-	private:
+ 	//encapulated data types 
+private:
 		int AccountNumber;
 		double Balance;
 	public:
- void SetAccountNo(int AN){
-		AccountNumber=AN;
-	}
-			int getAccountNumber(){
-				int AN=AccountNumber;
+		/* a constructor and an inherited constructor than enables the user 
+		to enter the data types outside the class*/
+		
+ BankAccount(string n,int An, double Bal):AccountHolder(n){
+	 Balance=Bal;
+	 AccountNumber=An;
+ }
+//the getter function to get the variable when called 
+int getAccountNumber(){
 				
-				return AN ;
+				return AccountNumber ;
 			}
-void Setbalance(double Bal){
-		Balance=Bal;
-	}
+//the getter function to get the variable when called 
 double getBalance(){
-				double Bal=Balance;
-				return Bal;
+				return Balance;
 			}
 };
+
+//DERIVED CLASS2
 class SavingAccount : public BankAccount{
 private:
 	double interestRate;
 public:
- SavingAccount(double Sa){
+	/* two construcors inherited from the bas class and another derived class 
+	than enables the user to enter the data types outside the class of th other
+	 inherited class too*/
+ SavingAccount(string nam,int a,double b,double Sa):BankAccount(nam,a,b){
 	interestRate=Sa;
 }
+//the getter function to get the variable when called 
 double getInterestRate (){
-	double Sa=interestRate;
-	return Sa;
+
+	return interestRate;
 }
 };
 
 int main(){
-	SavingAccount P1(109.09);
-	P1.SetAccountNo(14501);
-	P1.Setbalance(309887.56);
-	P1.SetName("charles Mureithi");
-	string NM;
-	int accountNo;
-	double balance,interest;
-	accountNo=P1.getAccountNumber();
-	balance=P1.getBalance();
-	interest=P1.getInterestRate();
-  NM=P1.getName();
-	cout<<"account name:"<< NM<<endl<<"accountNo:"<<accountNo<<endl<<"balance:"<<balance;
-	 cout<<endl<<interest;
+	//variables to prompt the user to enter the details
+	string Names;
+	int AccountNo;
+	double BalancenB,interest;
+	//prompts the user to enter
+	cout<<"Enter Name:"<<endl;
+	//reads the data from the keyboard
+	cin>>Names;
+	cout<<"Enter AccountNO:"<<endl;
+	cin>>AccountNo;
+	cout<<"Enter Balance"<<endl;
+	cin>>BalancenB;
+	cout<<"Enter Interest Rate:"<<endl;
+	cin>>interest;
+	 
+	// defining an object and initilizing the construcotor with values 
+	SavingAccount P1(Names,AccountNo,BalancenB,interest);
+cout<<"account name:"<< P1.getName()<<endl<<"accountNo:"<<P1.getAccountNumber();
+	cout<<endl<<"balance:"<<P1.getBalance();
+	 cout<<endl<<"interest:"<<P1.getInterestRate();
 	return 0;
 }
